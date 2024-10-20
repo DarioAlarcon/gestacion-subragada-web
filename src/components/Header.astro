@@ -2,12 +2,40 @@
 
 ---
 
+<script>
+    window.addEventListener("scroll", function () {
+        // Altura total del documento
+        const scrollHeight = document.documentElement.scrollHeight;
+
+        // Altura del área visible (ventana del navegador)
+        const clientHeight = document.documentElement.clientHeight;
+
+        // Cuánto ha hecho scroll el usuario
+        const scrollTop = document.documentElement.scrollTop;
+
+        // Calcular el porcentaje de scroll (scrollTop + clientHeight da la posición actual)
+        const scrolled = ((scrollTop + clientHeight) / scrollHeight) * 100;
+
+        // Seleccionar el elemento que se va a ocultar
+        const miElemento = document.querySelector(".button");
+
+        // Si se ha hecho scroll más del 95% de la página
+        if (scrolled >= 98) {
+            miElemento.classList.add("oculto"); // Añade la clase para ocultar
+        } else {
+            miElemento.classList.remove("oculto"); // Vuelve a mostrar el elemento si es menos del 95%
+        }
+    });
+</script>
+
 <header>
     <div class="header-content">
         <div>
             <h5 class="name">Ana Sofia Vera Muñoz</h5>
         </div>
-        <button type="button" class="">Leer ahora</button>
+        <button type="button" class="button"
+            ><p class="textbuttom">Leer ahora</p></button
+        >
     </div>
 </header>
 
@@ -15,7 +43,7 @@
     .name {
         width: 55%;
     }
-    button {
+    .button {
         background-color: var(--red);
         border: none;
         border-radius: 0.7rem;
@@ -24,7 +52,15 @@
         font-weight: 500;
         color: var(--cream-white);
         cursor: pointer;
+        transition: all 0.6s ease;
+        opacity: 1;
     }
+    .button.oculto {
+        overflow: hidden;
+        font-size: 0%;
+        padding: 0%;
+    }
+
     .header-content {
         width: 90%;
         margin: 0 auto;

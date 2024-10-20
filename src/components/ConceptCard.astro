@@ -52,4 +52,24 @@ const { title, data } = Astro.props;
     .concep-card:nth-child(odd) {
         align-self: flex-end;
     }
+    @media (min-width: 400px) {
+        .concep-card {
+            width: 230px;
+            min-width: 230px;
+            margin: 20px 0px auto;
+        }
+        .title {
+            width: 230px;
+        }
+    }
+    @media (min-width: 550px) {
+        .concep-card {
+            width: 330px;
+            min-width: 330px;
+            margin: 20px 0px auto;
+        }
+        .title {
+            width: 330px;
+        }
+    }
 </style>

@@ -2,6 +2,32 @@
 
 ---
 
+<script>
+    window.addEventListener("scroll", function () {
+        // Altura total del documento
+        const scrollHeight = document.documentElement.scrollHeight;
+
+        // Altura del área visible (ventana del navegador)
+        const clientHeight = document.documentElement.clientHeight;
+
+        // Cuánto ha hecho scroll el usuario
+        const scrollTop = document.documentElement.scrollTop;
+
+        // Calcular el porcentaje de scroll (scrollTop + clientHeight da la posición actual)
+        const scrolled = ((scrollTop + clientHeight) / scrollHeight) * 100;
+
+        // Seleccionar el elemento que se va a ocultar
+        const miElemento2 = document.querySelector(".boton");
+
+        // Si se ha hecho scroll más del 95% de la página
+        if (scrolled >= 98) {
+            console.log("Clase 'oculto' añadida");
+            miElemento2.classList.add("oculto"); // Añade la clase para ocultar
+        } else {
+            miElemento2.classList.remove("oculto"); // Vuelve a mostrar el elemento si es menos del 95%
+        }
+    });
+</script>
 <section>
     <div class="final-text">
         <p>
@@ -10,7 +36,7 @@
             ever since the 1500s,
         </p>
     </div>
-    <button type="button" class="">Leer ahora</button>
+    <button type="button" class="boton">Leer ahora</button>
 </section>
 <style>
     section {
@@ -22,16 +48,34 @@
     }
     .final-text {
         color: var(--brown);
+        max-width: 400px;
     }
-    button {
+    .boton {
         margin-top: 1rem;
         background-color: var(--red);
         border: none;
         border-radius: 0.7rem;
-        padding: 0.7rem 1rem;
-        font-size: 1rem;
+        padding: 0rem;
+        font-size: 0rem;
         font-weight: 500;
         color: var(--cream-white);
         cursor: pointer;
+        transition: all 0.4s ease-in-out;
+        opacity: 0;
+    }
+    .boton.oculto {
+        padding: 0.7rem 1rem;
+        font-size: 1rem;
+        opacity: 1;
+    }
+    @media (min-width: 500px) {
+        section {
+            padding: 2.4rem;
+        }
+    }
+    @media (min-width: 750px) {
+        section {
+            padding: 4rem;
+        }
     }
 </style>
