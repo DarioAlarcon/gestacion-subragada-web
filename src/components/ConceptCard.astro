@@ -1,0 +1,55 @@
+---
+interface Props {
+    title: string;
+    data: string;
+}
+const { title, data } = Astro.props;
+---
+
+<div class="concep-card">
+    <div class="title"><h3>{title}</h3></div>
+    <div class="divider"></div>
+    <div class="complement"><p>{data}</p></div>
+</div>
+<style>
+    .concep-card {
+        max-height: 60px;
+        width: 180px;
+        min-width: 180px;
+        overflow: hidden;
+        margin: 10px 0px auto;
+        padding: 0px 10px;
+        border-radius: 0.8rem;
+        transition: all 0.6s ease-in-out;
+        text-align: center;
+        background-color: var(--brown);
+    }
+    .divider {
+        width: 90%;
+        border-bottom: 2px solid var(--cream-white);
+    }
+    .title {
+        display: flex;
+        height: 60px;
+        width: 180px;
+        min-width: 180px;
+        color: var(--cream-white);
+        justify-content: center;
+        align-items: center;
+        font-size: 0.8rem;
+    }
+    .complement {
+        padding: 10px 0px;
+        color: var(--cream-white);
+    }
+    .concep-card:hover {
+        max-height: 420px;
+        width: 150px;
+    }
+    .concep-card:nth-child(even) {
+        align-self: flex-start;
+    }
+    .concep-card:nth-child(odd) {
+        align-self: flex-end;
+    }
+</style>
