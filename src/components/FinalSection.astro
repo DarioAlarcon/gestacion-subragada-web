@@ -4,28 +4,23 @@
 
 <script>
     window.addEventListener("scroll", function () {
-        // Altura total del documento
         const scrollHeight = document.documentElement.scrollHeight;
-
-        // Altura del área visible (ventana del navegador)
         const clientHeight = document.documentElement.clientHeight;
-
-        // Cuánto ha hecho scroll el usuario
         const scrollTop = document.documentElement.scrollTop;
-
-        // Calcular el porcentaje de scroll (scrollTop + clientHeight da la posición actual)
         const scrolled = ((scrollTop + clientHeight) / scrollHeight) * 100;
-
-        // Seleccionar el elemento que se va a ocultar
         const miElemento2 = document.querySelector(".boton");
-
-        // Si se ha hecho scroll más del 95% de la página
         if (scrolled >= 95) {
             console.log("Clase 'oculto' añadida");
-            miElemento2.classList.add("oculto"); // Añade la clase para ocultar
+            miElemento2.classList.add("oculto");
         } else {
-            miElemento2.classList.remove("oculto"); // Vuelve a mostrar el elemento si es menos del 95%
+            miElemento2.classList.remove("oculto");
         }
+    });
+</script>
+<script>
+    const button = document.getElementById("boton");
+    button.addEventListener("click", () => {
+        window.location.href = "/reading";
     });
 </script>
 <section>
@@ -36,7 +31,7 @@
             ever since the 1500s,
         </p>
     </div>
-    <button type="button" class="boton">Leer ahora</button>
+    <button type="button" class="boton" id="boton">Leer ahora</button>
 </section>
 <style>
     section {
