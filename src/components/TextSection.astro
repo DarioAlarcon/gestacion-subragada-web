@@ -6,17 +6,17 @@
     const itemsinfo = [
         {
             numero: "1",
-            titulo: "capitulo 1",
-            info: "",
+            titulo: "Introducción",
+            info: "La necesidad de ser buena ―con lo que sea que eso signifique― se siente más fuerte en la juventud, cuando el mundo se mira con ojos ávidos de justicia, cuando cada aprendizaje se siente como tener el universo en la mano y las verdades absolutas parecen tan fáciles de decidir. Las ideologías, el sentido crítico y las opiniones afloran en terrenos regados por la información que se consume, los libros que se leen, los autores que se admiran, el ideal de persona que se quiere ser. Tal vez sea esta juventud y esta sed de corrección ―y también mi profundo deseo de ser madre y mi consciencia de esa grandeza― la que me llevó a caminos de temas espinosos como las técnicas de reproducción asistida. No se me hizo difícil coger el mazo y poner en tela de juicio varias de ellas, abrumada por la complejidad de las prácticas y por el obvio protagonismo de los cuerpos femeninos en ellas. Entre todo, lo que más me incomodó fue ver la facilidad de alquilar un vientre, la cantidad de mujeres dispuestas a hacerlo y sus características compartidas. En nosotras ha radicado la parte más importante de la vida y eso nos ha llevado a cargar con su peso, a sostener lo más valioso del mundo en las manos e intentar decidir qué hacer con ello. Intentar, solo intentar, porque ¿qué tan autónomo realmente es ese decidir? Estamos inmersas en una sociedad desigual que puede ser más difícil para nosotras ―no creo que haya necesidad de discutirlo a este punto―, y esa circunstancia vicia a menudo nuestros comportamientos y elecciones, desfavoreciendo a quienes ya están desfavorecidas. Esta idea podría ponerse en masculino y tendría igual sentido, también hay un asunto de clase que nos atraviesa, pero lo que atañe a las mujeres en este caso es propio de nuestra condición sexual, de nuestros órganos y sus capacidades, de cómo la ciencia se ha adentrado en ellos para descubrir o inventar nuevas formas de crear vida, arrebatándonos un poco lo que antes era solo nuestro. Muchos han alegado las consecuencias negativas de regular la gestación subrogada y la han calificado de mercantilización del cuerpo de las mujeres, así como de inhumanidad al transar con bebés. Es fácil verlo así, especialmente al consultar las altísimas cifras que las personas pagan cuando no pueden o quieren sobrellevar un embarazo. ¿Quién lo adolece, entonces? Las mujeres que necesitan dinero. ¿Eso es correcto? No lo creo, pero para escribir todo lo que contiene este  me tomo el atrevimiento de permanecer en silencio para escuchar voces con más potestad de la que yo tengo. Este reportaje comenzó con una etnografía virtual que me sobrecogió y fue sucedido por una serie de entrevistas que me hicieron más consciente que nunca de los claroscuros. Pese a que elegí un tema difícil de hablar, pude conocer gestantes subrogadas, padres y madres de intención, abogados, abogadas, psicólogas, antropólogas, feministas, agencias, clínicas, activistas. Todos tienen algo para decir que, en este rompecabezas, permite entender que la realidad es más compleja de lo que uno quisiera; especialmente cuando lo que se desea descifrar es parecido a algún tipo de magia que los humanos crearon para poder disponer del linaje y alterar lo que siempre estuvo y estará: la madre. La columna vertebral de este trabajo es la historia de Erótida, una mujer de 31 años que decidió ser gestante subrogada. Ella, con su relato particular, encarna el infinito que se esconde en llevar embarazos para otros. Más importante me fue escucharla que cualquier cosa. Su relato tiene las respuestas, no importa cuáles sean las preguntas. ",
         },
         {
             numero: "2",
-            titulo: "capitulo 2",
+            titulo: "Erotida",
             info: "",
         },
         {
             numero: "3",
-            titulo: "capitulo 3",
+            titulo: "subrogar la maternidad: cambiar su definicion",
             info: "",
         },
         {
@@ -50,6 +50,7 @@
 
     // Seleccionar el contenedor del ítem seleccionado
     const selectedItemContainer = document.getElementById("selected-item");
+    const selectedItemParagraph = document.getElementById("selected-item-text");
 
     // Seleccionar el header
     const header = document.getElementById("header");
@@ -77,8 +78,9 @@
         item.addEventListener("click", () => {
             // Mostrar el ítem seleccionado en el cuerpo de la página
             const selectedText = itemsinfo[indice].titulo;
+            const selectedParagraph = itemsinfo[indice].info;
             selectedItemContainer.textContent = selectedText;
-
+            selectedItemParagraph.textContent = selectedParagraph;
             // Ocultar el ítem seleccionado del header
             menuItems.forEach((i) => i.classList.remove("hidden")); // Mostrar todos
             menuItems.forEach((i, index) => {
