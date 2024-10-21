@@ -2,6 +2,98 @@
 
 ---
 
+<script>
+    const itemsinfo = [
+        {
+            numero: "1",
+            titulo: "capitulo 1",
+            info: "",
+        },
+        {
+            numero: "2",
+            titulo: "capitulo 2",
+            info: "",
+        },
+        {
+            numero: "3",
+            titulo: "capitulo 3",
+            info: "",
+        },
+        {
+            numero: "4",
+            titulo: "capitulo 4",
+            info: "",
+        },
+        {
+            numero: "5",
+            titulo: "capitulo 5",
+            info: "",
+        },
+        {
+            numero: "6",
+            titulo: "capitulo 6",
+            info: "",
+        },
+        {
+            numero: "7",
+            titulo: "capitulo 7",
+            info: "",
+        },
+        {
+            numero: "8",
+            titulo: "capitulo 8",
+            info: "",
+        },
+    ];
+    // Seleccionar todos los ítems del menú
+    const menuItems = document.querySelectorAll(".menu-item");
+
+    // Seleccionar el contenedor del ítem seleccionado
+    const selectedItemContainer = document.getElementById("selected-item");
+
+    // Seleccionar el header
+    const header = document.getElementById("header");
+    const lista = document.getElementById("menu");
+
+    // Función para verificar si hay un ítem seleccionado
+    function checkSelected() {
+        const isAnyHidden = document.querySelector(".menu-item.hidden");
+
+        if (isAnyHidden) {
+            // Si hay un ítem oculto, el header vuelve a tamaño normal
+            header.classList.remove("large");
+            lista.classList.remove("large");
+            menuItems.forEach((i) => i.classList.remove("large"));
+        } else {
+            // Si no hay ninguno seleccionado, duplicar el tamaño del header
+            header.classList.add("large");
+            lista.classList.add("large");
+            menuItems.forEach((i) => i.classList.add("large"));
+        }
+    }
+
+    // Añadir un evento click a cada ítem
+    menuItems.forEach((item, indice) => {
+        item.addEventListener("click", () => {
+            // Mostrar el ítem seleccionado en el cuerpo de la página
+            const selectedText = itemsinfo[indice].titulo;
+            selectedItemContainer.textContent = selectedText;
+
+            // Ocultar el ítem seleccionado del header
+            menuItems.forEach((i) => i.classList.remove("hidden")); // Mostrar todos
+            menuItems.forEach((i, index) => {
+                i.textContent = itemsinfo[index].numero;
+            }); // Mostrar todos
+            item.classList.add("hidden"); // Ocultar el seleccionado
+
+            // Verificar si hay selección
+            checkSelected();
+        });
+    });
+
+    // Verificar inicialmente si no hay selección
+    checkSelected();
+</script>
 <header id="header">
     <nav>
         <ul id="menu">
@@ -25,24 +117,29 @@
 <style>
     header {
         width: 100%;
-        height: 100vh;
-        padding: 2rem;
+        height: 50px;
+        padding: 1rem;
         transition: all 0.3s ease;
         /* Para animar el cambio de tamaño */
     }
-
     header.large {
-        padding: 80px;
+        padding: 2rem;
+        height: 100vh;
         /* Doble tamaño */
     }
 
     nav ul {
         list-style-type: none;
+        display: flex;
+        justify-content: space-around;
+    }
+    nav ul.large {
+        list-style-type: none;
         display: grid;
         grid-template-columns: repeat(2, 1fr); /* Crea 2 columnas */
     }
 
-    nav ul li {
+    nav ul li.large {
         display: flex;
         margin: 2.5rem 10px;
         height: 4rem;
@@ -50,6 +147,20 @@
         text-align: center;
         color: var(--red);
         padding: 10px 15px;
+        cursor: pointer;
+        background-color: var(--beige);
+        justify-content: center;
+        align-items: center;
+        transition: all 0.3s ease-out;
+    }
+
+    nav ul li {
+        display: flex;
+        height: 10px;
+        border-radius: 0.7rem;
+        text-align: center;
+        color: var(--red);
+        padding: 10px 18px;
         cursor: pointer;
         background-color: var(--beige);
         justify-content: center;
